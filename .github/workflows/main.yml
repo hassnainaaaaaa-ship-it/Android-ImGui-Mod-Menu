@@ -22,11 +22,6 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
 
-    - name: Install Android NDK
-      run: |
-        echo "y" | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393"
-        echo "ndk.dir=${ANDROID_HOME}/ndk/25.1.8937393" > local.properties
-
     - name: Make Gradle Executable
       run: chmod +x ./gradlew
 
