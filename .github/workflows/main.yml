@@ -19,10 +19,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Set up Android SDK & NDK
+    - name: Set up Android SDK
       uses: android-actions/setup-android@v3
-      with:
-        ndk-version: '25.1.8937393'
+
+    - name: Setup NDK Path
+      run: |
+        echo "ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/25.1.8937393" >> $GITHUB_ENV
+        echo "NDK_HOME=${ANDROID_HOME}/ndk/25.1.8937393" >> $GITHUB_ENV
 
     - name: Make Gradle Executable
       run: chmod +x ./gradlew
