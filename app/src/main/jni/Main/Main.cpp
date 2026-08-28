@@ -9,9 +9,17 @@
 #include "../Include/Drawing.h"
 #include "../Include/Unity.h"
 
+bool isAimbot = false;
+bool isESP = false;
+
 void DrawMenu() {
-    ImGui::ShowDemoWindow();
+    ImGui::Begin("My Mod Menu");
+    ImGui::Text("Status: Active");
+    ImGui::Checkbox("Aimbot", &isAimbot);
+    ImGui::Checkbox("ESP Wallhack", &isESP);
+    ImGui::End();
 }
+
 
 void *thread(void *) {
     LOGI(OBFUSCATE("Main Thread Loaded: %d"), gettid());
