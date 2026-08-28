@@ -19,11 +19,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup Android NDK
-      uses: nvida-actions/setup-android-ndk@v1
-      with:
-        ndk-version: r25c
-      continue-on-error: true
+    - name: Set up Android SDK & NDK
+      uses: android-actions/setup-android@v3
 
     - name: Make Gradle Executable
       run: chmod +x ./gradlew
