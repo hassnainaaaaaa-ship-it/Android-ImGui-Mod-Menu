@@ -1,4 +1,4 @@
-name: Build Android Mod Menu APK
+Name: Build Android Mod Menu APK
 
 on:
   push:
@@ -19,8 +19,12 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Set up Android SDK & NDK
+    - name: Set up Android SDK
       uses: android-actions/setup-android@v3
+
+    - name: Install NDK 25.1.8937393
+      run: |
+        ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "ndk;25.1.8937393"
 
     - name: Make Gradle Executable
       run: chmod +x ./gradlew
@@ -33,4 +37,3 @@ jobs:
       with:
         name: ModMenu-APK
         path: app/build/outputs/apk/debug/*.apk
-        
